@@ -1,0 +1,11 @@
+
+###################################
+Tags to search by (potentially)
+
+inventory__container
+search-result__market-price--value - Market price
+search-result__content - Should contain basically everything about a posting.
+search-result__subtitle - The pack name
+search-result__rarity - Secret rare, etc.
+
+inventory__price-with-shipping - Lowest price with shipping.
