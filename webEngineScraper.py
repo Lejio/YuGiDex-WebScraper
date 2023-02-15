@@ -64,11 +64,11 @@ class FetchEngine(QWidget):
                 self.parser.feed(str(data))
                 
                 r = self.parser.getResponse()
-                self.response[r[1]] = [r, self.parser.getLink()]
-                print(self.parser.getLink())
+                r.append(self.parser.getLink())
+                self.response[r[0]] = r[1:]
                 self.parser.clean()
 
-        print(self.response)        
+        print(self.response)
         self.parser.close()
         
                 

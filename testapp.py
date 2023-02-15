@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         bruhlayout = QHBoxLayout()
 
         self.results = FetchEngine()
-        self.results.findCard("Triple Tactics Talent")
+        self.results.findCard("Dark Magician")
 
 
         bruhlayout.addWidget(self.results)
