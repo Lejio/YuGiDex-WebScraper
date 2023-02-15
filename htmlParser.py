@@ -7,13 +7,13 @@ class YuGiParser(HTMLParser):
         super().__init__()
 
         self.__response = []
-        self.__links = []
+        self.__links = ""
         self.data = ""
         
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         
         if tag == 'a':
-            self.__links.append(attrs[0][1])
+            self.__links = attrs[0][1]
         
         return super().handle_starttag(tag, attrs)
 
@@ -37,7 +37,8 @@ class YuGiParser(HTMLParser):
         
         return self.__links
     
-    def finish(self):
+    def clean(self):
         
-        self.close()
-        
+        self.__response = []
+        self.__links = []
+        self.data = ""

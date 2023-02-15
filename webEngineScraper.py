@@ -29,7 +29,7 @@ class FetchEngine(QWidget):
         
         self.setLayout(layout)
     
-    def load(self, name: str) -> None:
+    def __load(self, name: str) -> None:
         
         self.web.load(QUrl(self.DEFAULT_URL + name + self.GRID_VIEW))
         self.currPage = self.web.page()
@@ -38,7 +38,7 @@ class FetchEngine(QWidget):
         
         cardname = card.replace(" ", "+")
         
-        self.load(cardname)
+        self.__load(cardname)
         
     def performSurgery(self) -> None:
         
@@ -61,12 +61,16 @@ class FetchEngine(QWidget):
             for data in find_class:
                 
                 self.parser.reset()
-                self.parser.feed(data)
+                self.parser.feed(str(data))
                 
                 r = self.parser.getResponse()
                 self.response[r[1]] = [r, self.parser.getLink()]
-                
-        self.parser.finish()
+                print(self.parser.getLink())
+                self.parser.clean()
+
+        print(self.response)        
+        self.parser.close()
+        
                 
         
         
