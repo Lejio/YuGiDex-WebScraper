@@ -12,8 +12,14 @@ class YuGiParser(HTMLParser):
         
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         
-        if tag == 'a':
-            self.__links = attrs[0][1]
+        # print(attrs[0])
+        # if tag == 'a':
+            # print(attrs[0][1])
+            # self.__links = attrs[0][1]
+        for i in attrs:
+            if len(i) != 0:
+                if i[0] == 'href':
+                    self.__links = i[1]
         
         return super().handle_starttag(tag, attrs)
 
