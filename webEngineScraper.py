@@ -3,7 +3,7 @@ from PySide6.QtCore import QUrl, QTimer
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel
 from bs4 import BeautifulSoup
 
-from htmlParser import YuGiParser
+from yugiparser import YuGiParser
 
 class FetchEngine(QWidget):
     

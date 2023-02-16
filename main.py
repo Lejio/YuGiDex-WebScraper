@@ -1,4 +1,4 @@
-from htmlParser import YuGiParser
+from yugiparser import YuGiParser
 
 if __name__ == "__main__":
     
