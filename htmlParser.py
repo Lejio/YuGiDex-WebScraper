@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 
+
 class YuGiParser(HTMLParser):
     
     def __init__(self):
