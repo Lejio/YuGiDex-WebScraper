@@ -115,6 +115,7 @@ class FetchEngine(QWidget):
                 # Should reset all the data.
                 self.parser.clean()
 
+        # Printing for debugging purposes.
         print(self.response)
         # Closes the parser when finished.
         self.parser.close()
