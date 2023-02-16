@@ -1,3 +1,5 @@
+   RESULT HTML WHEN QUERYING THE 'search-result__content' class
+   
                     <div class="search-result__content" tabindex="0"><a
                         href="/product/253906/yugioh-maximum-gold-el-dorado-blue-eyes-white-dragon?xid=pib9534339-5c8e-40d8-aece-00b029258c62&amp;page=1"
                         class="" data-testid="search-result__image--0" tabindex="-1">

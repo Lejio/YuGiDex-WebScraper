@@ -1,7 +1,0 @@
-<div class="inventory__container" data-v-66c16b62="">
-    <span class="inventory__listing-count inventory__listing-count-block" data-v-66c16b62="">
-        <span data-v-66c16b62="">129 listings</span>
-     as low as </span>
-     <span class="inventory__price" data-v-66c16b62="">
-            <span class="inventory__price-with-shipping" data-v-66c16b62="">$1.25</span>
-            </span><!-- --></div>
