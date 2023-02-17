@@ -48,9 +48,12 @@ class YuGiParser(HTMLParser):
     ###############################################################################################
     def getResponse(self):
         
-        # Remove the interpunct that is contaminating the data.
+        # Remove the items that is contaminating the data.
+        # May need a more efficient way to remove contamination.
         self.__response.remove("·")
-        
+        self.__response.remove("as low as")
+        self.__response.remove("Market Price:")
+
         return self.__response[1:]
 
     ###############################################################################################

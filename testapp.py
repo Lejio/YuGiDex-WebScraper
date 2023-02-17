@@ -12,14 +12,22 @@ class MainWindow(QMainWindow):
         bruhWidget = QWidget()
         bruhlayout = QHBoxLayout()
 
+        # Instantiates a fetch engine. It is a QWidget so you have to add it to the 
         self.results = FetchEngine()
         self.results.findCard("Dark Magician")
-
-
+        self.results.finished.connect(self.getResponse)
         bruhlayout.addWidget(self.results)
 
+        # self.hide()
+        
         bruhWidget.setLayout(bruhlayout)
         self.setCentralWidget(bruhWidget)
+        
+    def getResponse(self):
+        
+        self.response = self.results.getResponse()
+        print(self.response)
+        
 
 
 
