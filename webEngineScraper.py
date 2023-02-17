@@ -25,19 +25,19 @@ class FetchEngine(QWidget, QObject):
         # self.finished = False
         
         # Instantiates a web view engine.
-        self.web = QWebEngineView()
+        self.__web = QWebEngineView()
         
         # Hides the widget so the use sees nothing.
-        self.web.hide()
+        self.__web.hide()
 
         # Instantiates a empty response from page.
         self.__response = {}
         
         # Instantiates html parser.
-        self.parser = YuGiParser()
+        self.__parser = YuGiParser()
                 
         # self.web.loadFinished.connect(self.testLabel)
-        self.web.loadFinished.connect(self.__performSurgery)
+        self.__web.loadFinished.connect(self.__performSurgery)
         
         ##### REMOVED BUTTON FUNCTIONALITY #####
         # BUTTON WAS FOR TESTING PURPOSES ONLY #
@@ -63,8 +63,8 @@ class FetchEngine(QWidget, QObject):
     ###############################################################################################
     def __load(self, name: str) -> None:
         
-        self.web.load(QUrl(self.DEFAULT_URL + name + self.GRID_VIEW))
-        self.currPage = self.web.page()
+        self.__web.load(QUrl(self.DEFAULT_URL + name + self.GRID_VIEW))
+        self.__currPage = self.__web.page()
     
     
     
@@ -88,7 +88,7 @@ class FetchEngine(QWidget, QObject):
     ###############################################################################################
     def __performSurgery(self) -> None:
         
-        self.currPage.toHtml(self.__save_to_html)
+        self.__currPage.toHtml(self.__save_to_html)
 
     
     
@@ -120,18 +120,18 @@ class FetchEngine(QWidget, QObject):
             for data in find_class:
                 
                 # Resets the parser.
-                self.parser.reset()
+                self.__parser.reset()
                 
                 # Feeds the data into parser.
-                self.parser.feed(str(data))
+                self.__parser.feed(str(data))
                 
                 # Returns a list in the format of:
                 # [Set name, Rariety, Set number, Name of Card, # Listings, Lowest price, Market
                 # price, Link to card page].
-                r = self.parser.getResponse()
+                r = self.__parser.getResponse()
                 
                 # Gets the link. It is processed separately from the others.
-                r.append(self.parser.getLink())
+                r.append(self.__parser.getLink())
                 
                 # Places them in a dictionary entry in the format:
                 # 'Set name': [Rariety, Set number, Name of Card, # Listings, Lowest price, Market
@@ -139,7 +139,7 @@ class FetchEngine(QWidget, QObject):
                 self.__response[r[0]] = r[1:]
                 
                 # Should reset all the data.
-                self.parser.clean()
+                self.__parser.clean()
 
             # Printing for debugging purposes.
             # print(self.response)
@@ -148,7 +148,7 @@ class FetchEngine(QWidget, QObject):
             self.finished.emit(True)
             
         # Closes the parser when finished.
-        self.parser.close()
+        self.__parser.close()
     
     
     
