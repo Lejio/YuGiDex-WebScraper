@@ -19,11 +19,10 @@ class FetchEngine(QWidget, QObject):
         super(FetchEngine, self).__init__()
                 
         # This is the default search links to TCGPlayer website.
+        # Change this to view other products!
         self.DEFAULT_URL = "https://www.tcgplayer.com/search/yugioh/product?productLineName=yugioh&productName="
         self.GRID_VIEW = "&view=grid"
-        
-        # self.finished = False
-        
+                
         # Instantiates a web view engine.
         self.__web = QWebEngineView()
         
